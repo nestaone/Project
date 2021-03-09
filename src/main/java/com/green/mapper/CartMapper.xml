@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.mapper.CartMapper">
+	
+	<insert id="cartInsert">
+		<!-- 제품을 장바구니에 추가 -->
+		insert into cartTbl values (seq_cart.nextval, #{email}, #{pno}, #{amount}, #{total})
+	</insert>
+	
+	<select id="cartList" resultType="com.green.domain.Cart">
+		<!-- 장바구니 번호, 상품 번호, 회원 아이디, 회원 이름, 상품 이름, 제품 수량, 제품 가격, 제품 전체 금액의 합계
+		select cno, p.pno, c.email, name, productName, amount, price, (price*amount) money
+			from memberTbl m, productTbl p, cartTbl c
+			
+		회원 아이디 = 장바구니 회원 아이디, 제품 번호 = 장바구니 제품 번호
+		where m.email = c.email and c.pno = p.pno 
+		 장바구니 회원 아이디와 장바구니에 저장된 회원 아이디가 같을 때 장바구니 번호로 정렬함
+			and	c.email = #{email} order by cno -->
+			select * from cartTbl order by cno desc
+	</select>
+	
+	<select id="productByPno" resultType="com.green.domain.Product">
+			select * from productTbl where pno = #{pno} order by pno desc
+	</select>
+	
+	<select id="sumMoney" resultType="int">
+		<!-- sql nvl함수 이용 => nvl함수는 값이 null일 경우 지정값을 출력함 -->
+		
+		<!-- 장바구니에 아무것도 담지 않았을 경우 제품 금액 합계를 0으로 출력하기 위함 -->
+		select nvl(sum(price*amount), 0) from cartTbl c, productTbl p
+		
+		<!-- 장바구니 제품 번호 = 제품 번호, 요청하는 회원 아이디가 같은 경우 -->
+			where c.pno = p.pno and email = #{email}
+	</select>
+	
+	<delete id="cartDelete">
+		<!-- 장바구니에 담겨 있는 제품 한 개 삭제-->
+		delete from cartTbl where cno = #{cno}
+	</delete>
+	
+	<delete id="cartDeleteAll">
+		<!-- 장바구니에 담겨 있는 모든 제품 삭제 -->
+		delete from cartTbl where email = #{email}
+	</delete>
+	
+</mapper>
