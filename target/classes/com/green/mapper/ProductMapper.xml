@@ -24,7 +24,7 @@
 	</insert>
 	
 	<select id="getCategory" resultType="com.green.domain.Product">
-		select * from productTbl where category = #{category} order by pno desc
+		select * from productTbl where cate = #{cate} order by pno desc
 	</select>
 	
 	<!-- 추후 수정 -->

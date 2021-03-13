@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.green.mapper.MemberMapper">
 
 	<select id="memberList" resultType="com.green.domain.Member">
@@ -30,13 +30,5 @@
 	<select id="getByEmail" resultType="com.green.domain.Member">
 		select * from member_tbl where email = #{email}
 	</select>
-	
-	
-	<!-- 삭제 예정 -->
-	<select id="yourPage" resultType="com.green.domain.Member">
-		select * from member_Tbl where email = #{email}
-	</select>
-	
 
-	
 </mapper>

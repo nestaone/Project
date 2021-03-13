@@ -80,11 +80,11 @@
                 <a href="#" class="search-nav"><img src="/resources/img/core-img/search.png" alt=""> 검색</a>
                 
                 <!-- Login -->
-            	<a href="/member/register"><button type="button" class="btn btn-info">로그인</button></a>
+                <a href="/member/register"><button type="button" class="btn btn-info">로그인</button></a>
                 
                 <!-- Add Product -->
-            	<button type="button" class="btn btn-warning"
-            		onclick="location.href='/product/addproduct?email=<c:out value='${email}'/>'">제품 추가</button>
+                <button type="button" class="btn btn-warning"
+                    onclick="location.href='/product/addproduct?email=<c:out value='${email}'/>'">제품 추가</button>
             </div>
             
 

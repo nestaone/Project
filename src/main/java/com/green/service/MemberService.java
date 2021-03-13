@@ -2,6 +2,8 @@ package com.green.service;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.green.domain.Cart;
 import com.green.domain.Member;
 import com.green.domain.Product;
@@ -32,9 +34,6 @@ public interface MemberService {
 	public void cartDeleteAll(String email);//장바구니 비우기
 	public int sumMoney(String email);//장바구니 합계
 	public Product productByPno(Long pno);
-	
-	//임시 로그인(삭제 예정)
-	public Member yourPage(String email);
 	
 	//파일 업로드
 	public List<UploadVO> fileList();

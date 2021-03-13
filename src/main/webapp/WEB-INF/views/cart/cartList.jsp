@@ -17,15 +17,10 @@
     <link rel="stylesheet" href="/resources/style.css">
 
 	<!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
-    <script src="/resources/js/jquery/jquery-2.2.4.min.js"></script>
-    <!-- Popper js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="/resources/js/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="/resources/js/bootstrap.min.js"></script>
-    <!-- Plugins js -->
-    <script src="/resources/js/plugins.js"></script>
-    <!-- Active js -->
-    <script src="/resources/js/active.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 
     <style>
         th{
@@ -50,12 +45,12 @@
             font-weight: bold;
         }
         #payment{
-        	width: 74px;
+            width: 74px;
         }
         #total_price{
-        	width: 50px;
-        	text-align: center;
-        	border: none;
+            width: 50px;
+            text-align: center;
+            border: none;
         }
     </style>
 </head>
@@ -111,15 +106,15 @@
                 <ul>
                     <li class="active"><a href="/?email=<c:out value='${email}'/>">홈</a></li>
                     <form action="/product/productList" method="get">
-                    	<input type="hidden" name="email" value="${email}">
-            			<input type="hidden" name="total" value="${total}">
-                    	<c:forEach var="row" items="${cart}">
-                    		<input type="hidden" name="cno" value="${row.cno}">
-                    		<input type="hidden" name="pno" value="${row.pno}">
-                    		<input type="hidden" name="amount" value="${row.amount}">
-                    		<input type="hidden" name="price" value="${row.price}">
-                    	</c:forEach>
-                    	<li><input type="submit" class="cart-nav" value="제품 보기" style="border:none; background-color:white;"></li>
+                        <input type="hidden" name="email" value="${email}">
+                        <input type="hidden" name="total" value="${total}">
+                        <c:forEach var="row" items="${cart}">
+                            <input type="hidden" name="cno" value="${row.cno}">
+                            <input type="hidden" name="pno" value="${row.pno}">
+                            <input type="hidden" name="amount" value="${row.amount}">
+                            <input type="hidden" name="price" value="${row.price}">
+                        </c:forEach>
+                        <li><input type="submit" class="cart-nav" value="제품 보기" style="border:none; background-color:white;"></li>
                     </form>
                     <li><a href="/member/mypage?email=<c:out value='${email}'/>">마이페이지</a></li>
                 </ul>
@@ -127,18 +122,18 @@
 
             <!-- Cart Menu -->
             <div class="cart-fav-search mb-100">
-            	<form action="cartList" method="get">
-            		<input type="hidden" name="email" value="${email}">
-            		<input type="hidden" name="total" value="${total}">
-            		<c:forEach var="row" items="${cart}">
-	            		<input type="hidden" name="pno" value="${row.pno}">
-	            		<input type="hidden" name="pname" value="${row.pname}">
-	            		<input type="hidden" name="price" value="${row.price}">
-	            		<input type="hidden" name="amount" value="${row.amount}">
-						<input type="hidden" name="cno" value="${row.cno}">
-					</c:forEach>
-	                <img src="/resources/img/core-img/cart.png" alt=""> <input type="submit" class="cart-nav" value="&nbsp;장바구니" style="border:none; background-color:white;"><span>&nbsp;(0)</span></a>
-	                <a href="#" class="search-nav"><img src="/resources/img/core-img/search.png" alt=""> 검색</a>
+                <form action="cartList" method="get">
+                    <input type="hidden" name="email" value="${email}">
+                    <input type="hidden" name="total" value="${total}">
+                    <c:forEach var="row" items="${cart}">
+                        <input type="hidden" name="pno" value="${row.pno}">
+                        <input type="hidden" name="pname" value="${row.pname}">
+                        <input type="hidden" name="price" value="${row.price}">
+                        <input type="hidden" name="amount" value="${row.amount}">
+                        <input type="hidden" name="cno" value="${row.cno}">
+                    </c:forEach>
+                    <img src="/resources/img/core-img/cart.png" alt=""> <input type="submit" class="cart-nav" value="&nbsp;장바구니" style="border:none; background-color:white;"><span>&nbsp;(0)</span></a>
+                    <a href="#" class="search-nav"><img src="/resources/img/core-img/search.png" alt=""> 검색</a>
                 </form>
             </div>
 
@@ -189,16 +184,16 @@
                                                     <div class="qty-btn d-flex">
                                                         <div class="quantity">
                                                             <span id="minus" class="qty-minus">
-                                                            	<i class="fa fa-minus" aria-hidden="true"></i>
+                                                                <i class="fa fa-minus" aria-hidden="true"></i>
                                                             </span>&nbsp
-                                                     <input type="number" class="qty-text" id="qty" step="1" min="1" max="300" name="amount" value="${row.amount}"><br><br>
+                                                        <input type="number" class="qty-text" id="qty" step="1" min="1" max="300" name="amount" value="${row.amount}"><br><br>
                                                             <span id="plus" class="qty-plus">
-                                                            	<i class="fa fa-plus" aria-hidden="true"></i>
+                                                                <i class="fa fa-plus" aria-hidden="true"></i>
                                                             </span>
                                                             <form action="cartDelete" method="get">
-                                                            	<input type="hidden" name="email" value="${row.email}">
-                                                            	<input type="hidden" name="cno" value="${row.cno}">
-                                                            	<button type="submit" id="btnDelete" class="btn btn-danger">삭제</button>
+                                                                <input type="hidden" name="email" value="${row.email}">
+                                                                <input type="hidden" name="cno" value="${row.cno}">
+                                                                <button type="submit" id="btnDelete" class="btn btn-danger">삭제</button>
                                                             </form>
                                                         </div>
                                                     </div>
@@ -220,15 +215,15 @@
                                 <li><span>결제 금액 :</span> <span id="productTotal">${total} 만원</span></li>
                             </ul>
                             
-	                            <div class="col-4">
-	                            	<form action="cartDeleteAll" method="get">
-	                                    <input type="hidden" name="email" value="${email}">
-		                                <span><button type="button" class="btn btn-warning" id="payment">결제</button></span>
-		                                <span>
-		                                	<button type="submit" id="cartDeleteAll" class="btn btn-danger">비우기</button>
-		                                </span>
-	                                </form>
-	                            </div>
+                                <div class="col-4">
+                                    <form action="cartDeleteAll" method="get">
+                                        <input type="hidden" name="email" value="${email}">
+                                        <span><button type="button" class="btn btn-warning" id="payment">결제</button></span>
+                                        <span>
+                                            <button type="submit" id="cartDeleteAll" class="btn btn-danger">비우기</button>
+                                        </span>
+                                    </form>
+                                </div>
                             
                         </div>
                     </div>
@@ -241,7 +236,7 @@
 	
 	<script>
         $(document).ready(function(){
-        	
+
 			var minusClick = $("td #minus");
 			var commonInput = $("td #qty"); //수량
 			var plusClick = $("td #plus");
@@ -267,26 +262,24 @@
 					plusEffect[i] = $(commonInput[i]).val();
 					plusEffect[i] = parseInt(plusEffect[i]) + 1;
 					$(commonInput[i]).val(plusEffect[i]);
-					console.log('수량 ', $(commonInput[i]).val());
-					console.log(' 배열인가?  ', $(commonTotal[0]).val() );
-					console.log('단가  ', $(commonUnit[i]).val());
+					// console.log('수량 ', $(commonInput[i]).val());
+					// console.log(' 배열인가?  ', $(commonTotal[0]).val() );
+					// console.log('단가  ', $(commonUnit[i]).val());
 					totalEffectResult[i]=$(commonUnit[i]).val() * $(commonInput[i]).val();
-					console.log('총액  ', totalEffectResult[i] );
+					// console.log('총액  ', totalEffectResult[i] );
 					$(commonTotal[i]).val(totalEffectResult[i]);
 				});	
 			});
-			
 			qtyChange();
-			
-         });
+        });
         
         function qtyChange(){
-        	$("#qty").change(function(){
-        		let qty = $(this).val();
-        		let totalArea = $("#productTotal");
-        		totalArea.empty();
-        		totalArea.append("값 확인");
-        	});
+            $("#qty").change(function(){
+                let qty = $(this).val();
+                let totalArea = $("#productTotal");
+                totalArea.empty();
+                totalArea.append("값 확인");
+            });
         }
     </script>
 

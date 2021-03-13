@@ -10,14 +10,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class CartProduct {
-	
-	private Long cno;
-	private String email;
-	private Long pno;
-	private int amount;
+	private Long cno, pno;
+	private String email, pname;
+	private int amount, price;
 	private int total;
-	
-    private String pname;
-    private int price;
-
 }

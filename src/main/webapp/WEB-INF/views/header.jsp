@@ -1,8 +1,8 @@
 	<style>
 	@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
-    	header {
-    		font-family : 'Noto Sans KR', sans-serif;
-    	}
+        header {
+            font-family : 'Noto Sans KR', sans-serif;
+        }
 	</style>
         <!-- Header Area Start -->
         <header class="header-area clearfix">

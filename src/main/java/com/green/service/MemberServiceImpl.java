@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.green.domain.Cart;
 import com.green.domain.Member;
@@ -106,10 +107,10 @@ public class MemberServiceImpl implements MemberService{
 
 		@Override
 		public void deleteFile(String uuid) { uploadMapper.deleteFile(uuid); }
+
+//		@Override
+//		public void uploadFile(MultipartFile[] uploadFile) { uploadMapper.uploadFile(uploadFile); }
+
 //---------- 파일 업로드 메서드 끝 ----------	
 	
-	
-	//임시 로그인(삭제 예정)
-	@Override
-	public Member yourPage(String email) { return memberMapper.yourPage(email); }
 }

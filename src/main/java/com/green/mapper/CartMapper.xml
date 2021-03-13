@@ -16,7 +16,7 @@
 			
 		회원 아이디 = 장바구니 회원 아이디, 제품 번호 = 장바구니 제품 번호
 		where m.email = c.email and c.pno = p.pno 
-		 장바구니 회원 아이디와 장바구니에 저장된 회원 아이디가 같을 때 장바구니 번호로 정렬함
+		장바구니 회원 아이디와 장바구니에 저장된 회원 아이디가 같을 때 장바구니 번호로 정렬함
 			and	c.email = #{email} order by cno -->
 			select * from cartTbl order by cno desc
 	</select>

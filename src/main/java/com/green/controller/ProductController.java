@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.green.domain.Cart;
@@ -95,12 +96,14 @@ public class ProductController {
 		return "product/addproduct";
 	}
 	@PostMapping("/addproduct")
-	public String postAddProduct(MultipartFile[] uploadFile, Product product, Member member, UploadVO vo) {
+	public String postAddProduct(@RequestParam("file") MultipartFile[] uploadFile, Product product, Member member) {
 		//List<UploadVO> list = new ArrayList<>();
-
-		log.info("uploadVO 는? : " + vo);
 		
-		String uploadFolder = "D://upload//temp";
+		service.addProduct(product);
+		log.info("product 값 : " + product);
+		
+		log.info("uploadFile 정보 : " + uploadFile);
+		String uploadFolder = "D://Programming//upload";
 		
 		String uploadFolderPath = getFolder();
 		
@@ -129,6 +132,10 @@ public class ProductController {
 			//파일 이름 중복 방지
 			UUID uuid = UUID.randomUUID();
 			uploadFileName = uuid.toString() + "_" + uploadFileName;
+			log.info("uploadFileName : " + uploadFileName);
+			
+			uploadVO.setPno(product.getPno());
+			log.info("uploadVO의 pno 값 : " + uploadVO.getPno());
 			
 			File saveFile = new File(uploadPath, uploadFileName);
 
@@ -137,19 +144,20 @@ public class ProductController {
 				
 				uploadVO.setUuid(uuid.toString());
 				uploadVO.setUploadPath(uploadFolderPath);
+				
 			} catch(Exception e){
 				log.error(e.getMessage());
 			}
+			
+			//service.uploadFile(uploadVO);
 		}//end for
 		
-		service.addProduct(product);
-		service.uploadFile(vo);
 		return "redirect:/product/productList?email=" + member.getEmail();
 	}
 		
 
-	@PostMapping("/category")
-	public List<Product> category(String category) {
-		return service.getCategory(category);
-	}
+//	@PostMapping("/category")
+//	public List<Product> category(String category) {
+//		return service.getCategory(category);
+//	}
 }

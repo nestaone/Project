@@ -18,7 +18,7 @@ public class MemberMapperTests {
 	@Setter(onMethod_=@Autowired)
 	private MemberMapper mapper;
 	
-	//@Test
+	@Test
 	public void testList() {
 		mapper.memberList();
 	}
@@ -59,8 +59,4 @@ public class MemberMapperTests {
 		mapper.remove("green2");
 	}
 	
-	//@Test
-	public void testYourPage() {		
-		mapper.yourPage("green3");
-	}
 }

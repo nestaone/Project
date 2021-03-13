@@ -1,8 +1,8 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
-   	footer {
-   		font-family : 'Noto Sans KR', sans-serif;
-   	}
+    footer {
+        font-family : 'Noto Sans KR', sans-serif;
+    }
 </style>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <!-- ##### Footer Area Start ##### -->

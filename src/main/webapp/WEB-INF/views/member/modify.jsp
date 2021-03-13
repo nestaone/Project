@@ -17,15 +17,10 @@
     <link rel="stylesheet" href="/resources/style.css">
 	
 	<!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
-    <script src="/resources/js/jquery/jquery-2.2.4.min.js"></script>
-    <!-- Popper js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="/resources/js/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="/resources/js/bootstrap.min.js"></script>
-    <!-- Plugins js -->
-    <script src="/resources/js/plugins.js"></script>
-    <!-- Active js -->
-    <script src="/resources/js/active.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	
 </head>
 
@@ -114,25 +109,25 @@
                                 <div class="row">                                    
                                     <input type="hidden" name="no" value='<c:out value="${modify.no}"/>' readonly="readonly">
                                     <div class="col-12">
-	                                    <div class="row">
-		                                    <div class="col-md-2 mb-1">
-		                                        <input type="text" class="form-control" value="Email" style="text-align:center; width:123px" readonly="readonly">
-		                                    </div>
-		                                    <div class="col-md-4 mb-3">
-		                                        <input type="text" class="form-control" name="email" id="email" value='<c:out value="${modify.email}"/>'>
-		                                    </div>
-	                                    </div>
+                                        <div class="row">
+                                            <div class="col-md-2 mb-1">
+                                                <input type="text" class="form-control" value="Email" style="text-align:center; width:123px" readonly="readonly">
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <input type="text" class="form-control" name="email" id="email" value='<c:out value="${modify.email}"/>'>
+                                            </div>
+                                        </div>
                                     </div><!-- end email -->
                                     
                                     <div class="col-12">
-	                                    <div class="row">
-		                                    <div class="col-md-2 mb-1">
-		                                        <input type="text" class="form-control" value="Name" style="text-align:center; width:123px" readonly="readonly">
-		                                    </div>
-		                                    <div class="col-md-4 mb-3">
-		                                        <input type="text" class="form-control" name="name" id="name" value='<c:out value="${modify.name}"/>'>
-		                                    </div>
-	                                    </div>
+                                        <div class="row">
+                                            <div class="col-md-2 mb-1">
+                                                <input type="text" class="form-control" value="Name" style="text-align:center; width:123px" readonly="readonly">
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <input type="text" class="form-control" name="name" id="name" value='<c:out value="${modify.name}"/>'>
+                                            </div>
+                                        </div>
                                     </div><!-- end name -->
                                     
                                     <div class="col-md-2 mb-1">
@@ -176,12 +171,12 @@
                                     
                                     <!-- 변경된 정보 저장 및 초기화 -->
                                     <div class="row" style="padding: 20px">
-	                                    <div class="col-md-5 col-md-offset-2">
-	                                        <input type="submit" class="btn btn-info">
-	                                    </div>
-	                                    <div class="col-md-5 col-md-offset-2">
-	                                    	<button type="reset" class="btn btn-dark">취소</button>
-	                                    </div>
+                                        <div class="col-md-5 col-md-offset-2">
+                                            <input type="submit" class="btn btn-info">
+                                        </div>
+                                        <div class="col-md-5 col-md-offset-2">
+                                            <button type="reset" class="btn btn-dark">취소</button>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
@@ -202,7 +197,7 @@
     <script>
     //우체번호 API
     function DaumPostCode(){
-    	new daum.Postcode({
+        new daum.Postcode({
             oncomplete: function(data) {
                 var roadAddr = data.roadAddress;
                 var address = data.address;
@@ -215,32 +210,32 @@
     
     $(document).ready(function(){
     	//select option의 text값을 가져와서 직접 입력칸(id="email2")을 바꿈
-    	/*$("#domain").change(function(){
-    		if($(this).val() == ""){
-    			$("#email2").val("");
-    		} else {
-    			$("#email2").val($(this).val());
-    			$("#eamil2").attr("readonly", true);
-    		}   		    		
-    	});*/
-    	
-    	//비밀번호 수정 시 값이 같지 않을 때 경고창을 띄움
-    	$('.pw').focusout(function () {
-	        var pwd1 = $("#password").val();
-	        var pwd2 = $("#password2").val();
+        /*$("#domain").change(function(){
+            if($(this).val() == ""){
+                $("#email2").val("");
+            } else {
+                $("#email2").val($(this).val());
+                $("#eamil2").attr("readonly", true);
+            }   		    		
+        });*/
+        
+        //비밀번호 수정 시 값이 같지 않을 때 경고창을 띄움
+        $('.pw').focusout(function () {
+            var pwd1 = $("#password").val();
+            var pwd2 = $("#password2").val();
 
-	        if ( pwd1 != '' && pwd2 == '' ) {
-	            null;
-	        } else if (pwd1 != "" || pwd2 != "") {
-	            if (pwd1 == pwd2) {
-	                
-	            } else {
-	                alert("비밀번호가 일치하지 않습니다. 비밀번호를 재확인해주세요.");
+            if ( pwd1 != '' && pwd2 == '' ) {
+                null;
+            } else if (pwd1 != "" || pwd2 != "") {
+                if (pwd1 == pwd2) {
+                    
+                } else {
+                    alert("비밀번호가 일치하지 않습니다. 비밀번호를 재확인해주세요.");
 
-	            }
-	        }
-	    });
-    	
+                }
+            }
+        });
+        
     });
 	</script>
 

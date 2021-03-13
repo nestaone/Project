@@ -13,15 +13,10 @@
     <link rel="stylesheet" href="/resources/css/core-style.css">
     
     <!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
-    <script src="/resources/js/jquery/jquery-2.2.4.min.js"></script>
-    <!-- Popper js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="/resources/js/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="/resources/js/bootstrap.min.js"></script>
-    <!-- Plugins js -->
-    <script src="/resources/js/plugins.js"></script>
-    <!-- Active js -->
-    <script src="/resources/js/active.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     
     <style>
         #amount{
@@ -97,22 +92,22 @@
 
             <!-- Cart Menu -->
             <div class="cart-fav-search mb-100">
-            	<form action="/cart/cartList" method="get">
-            		<input type="hidden" name="email" value="${member.email}">
-            		<input type="hidden" name="total" value="${total}">
-            		<c:forEach var="row" items="${cart}">
-	            		<input type="hidden" name="pno" value="${row.pno}">
-	            		<input type="hidden" name="pname" value="${row.pname}">
-	            		<input type="hidden" name="price" value="${row.price}">
-	            		<input type="hidden" name="amount" value="${row.amount}">
-						<input type="hidden" name="cno" value="${row.cno}">
-					</c:forEach>
-	                <img src="/resources/img/core-img/cart.png" alt=""> <input type="submit" class="cart-nav" value="&nbsp;장바구니" style="border:none; background-color:white;"><span>&nbsp;(0)</span></a>
-	                <a href="#" class="search-nav"><img src="/resources/img/core-img/search.png" alt=""> 검색</a>
+                <form action="/cart/cartList" method="get">
+                    <input type="hidden" name="email" value="${member.email}">
+                    <input type="hidden" name="total" value="${total}">
+                    <c:forEach var="row" items="${cart}">
+                        <input type="hidden" name="pno" value="${row.pno}">
+                        <input type="hidden" name="pname" value="${row.pname}">
+                        <input type="hidden" name="price" value="${row.price}">
+                        <input type="hidden" name="amount" value="${row.amount}">
+                        <input type="hidden" name="cno" value="${row.cno}">
+                    </c:forEach>
+                    <img src="/resources/img/core-img/cart.png" alt=""> <input type="submit" class="cart-nav" value="&nbsp;장바구니" style="border:none; background-color:white;"><span>&nbsp;(0)</span></a>
+                    <a href="#" class="search-nav"><img src="/resources/img/core-img/search.png" alt=""> 검색</a>
                 </form>
                 <!-- Add Product -->
-            	<button type="button" class="btn btn-warning"
-            		onclick="location.href='addproduct?email=<c:out value='${member.email}'/>'">제품 추가</button>
+                <button type="button" class="btn btn-warning"
+                    onclick="location.href='addproduct?email=<c:out value='${member.email}'/>'">제품 추가</button>
             </div>
 
             <div class="social-info d-flex justify-content-between">
@@ -134,22 +129,22 @@
 
                 <!--  Catagories  -->
                 <div class="catagories-menu">
-                	<form action="#" method="get">
-	                    <ul id="cate-menu">
-	                        <li value="COY"><a href="#">CPU</a></li>
-	                        <li value="메인보드"><a href="#">메인보드</a></li>
-	                        <li value="RAM"><a href="#">RAM</a></li>
-	                        <li value="그래픽카드"><a href="#">그래픽카드</a></li>
-	                        <li value="SSD"><a href="#">SSD</a></li>
-	                        <li value="HDD"><a href="#">HDD</a></li>
-	                        <li value="케이스"><a href="#">케이스</a></li>
-	                        <li value="파워"><a href="#">파워</a></li>
-	                        <li value="쿨러/튜닝"><a href="#">쿨러/튜닝</a></li>
-	                        <li value="키보드"><a href="#">키보드</a></li>
-	                        <li value="마우스"><a href="#">마우스</a></li>
-	                        <li value="ODD"><a href="#">ODD</a></li>
-	                        <li value="모니터"><a href="#">모니터</a></li>
-	                    </ul>
+                    <form action="#" method="get">
+                        <ul id="cate-menu">
+                            <li value="COY"><a href="#">CPU</a></li>
+                            <li value="메인보드"><a href="#">메인보드</a></li>
+                            <li value="RAM"><a href="#">RAM</a></li>
+                            <li value="그래픽카드"><a href="#">그래픽카드</a></li>
+                            <li value="SSD"><a href="#">SSD</a></li>
+                            <li value="HDD"><a href="#">HDD</a></li>
+                            <li value="케이스"><a href="#">케이스</a></li>
+                            <li value="파워"><a href="#">파워</a></li>
+                            <li value="쿨러/튜닝"><a href="#">쿨러/튜닝</a></li>
+                            <li value="키보드"><a href="#">키보드</a></li>
+                            <li value="마우스"><a href="#">마우스</a></li>
+                            <li value="ODD"><a href="#">ODD</a></li>
+                            <li value="모니터"><a href="#">모니터</a></li>
+                        </ul>
                     </form>
                 </div>
             </div>
@@ -314,11 +309,11 @@
 
 	<script>
 	/*function fnCart(memberId, pno, pname, price, amount){
-         if(confirm("장바구니에 담으시겠습니까?")){
-             location.href="cartInsert.jsp?id=" + memberId + "&pno=" + pno + "&pname=" + pname 
-                 + "&price=" + price + "&amount=" + amount;
-         }
-     }
+        if(confirm("장바구니에 담으시겠습니까?")){
+            location.href="cartInsert.jsp?id=" + memberId + "&pno=" + pno + "&pname=" + pname 
+                + "&price=" + price + "&amount=" + amount;
+        }
+    }
 	$(document).ready(function(){
 		var memberId = $("#memberId").val();
 		var pno = $("#pno").val();
@@ -331,9 +326,8 @@
 			fnCart(memberId, pno, pname, price, amount);
 		});
 	});*/
-     
+
 	$(document).ready(function(){
-		
 		listClick();
 	});
 	

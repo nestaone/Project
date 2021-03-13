@@ -17,15 +17,10 @@
     <link rel="stylesheet" href="/resources/style.css">
 
 	<!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
-    <script src="/resources/js/jquery/jquery-2.2.4.min.js"></script>
-    <!-- Popper js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="/resources/js/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="/resources/js/bootstrap.min.js"></script>
-    <!-- Plugins js -->
-    <script src="/resources/js/plugins.js"></script>
-    <!-- Active js -->
-    <script src="/resources/js/active.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 
 </head>
 
@@ -82,24 +77,24 @@
                     <li class="active"><a href="/?email=<c:out value='${mypage.email}'/>">홈</a></li>
                     <li><a href="/product/productList?email=<c:out value='${mypage.email}'/>">제품 보기</a></li>
                     <li><a href="/member/mypage?email=<c:out value='${mypage.email}'/>">마이 페이지</a></li>
-                	<li><a href="/notice">고객센터</a></li>
+                    <li><a href="/notice">고객센터</a></li>
                 </ul>
             </nav>
 
             <!-- Cart Menu -->
             <div class="cart-fav-search mb-100">
-            	<form action="/cart/cartList" method="get">
-            		<input type="hidden" name="email" value="${email}">
-            		<input type="hidden" name="total" value="${total}">
-            		<c:forEach var="row" items="${cart}">
-	            		<input type="hidden" name="pno" value="${row.pno}">
-	            		<input type="hidden" name="pname" value="${row.pname}">
-	            		<input type="hidden" name="price" value="${row.price}">
-	            		<input type="hidden" name="amount" value="${row.amount}">
-						<input type="hidden" name="cno" value="${row.cno}">
-					</c:forEach>
-	                <img src="/resources/img/core-img/cart.png" alt=""> <input type="submit" class="cart-nav" value="&nbsp;장바구니" style="border:none; background-color:white;"><span>&nbsp;(0)</span></a>
-	                <a href="#" class="search-nav"><img src="/resources/img/core-img/search.png" alt=""> 검색</a>
+                <form action="/cart/cartList" method="get">
+                    <input type="hidden" name="email" value="${email}">
+                    <input type="hidden" name="total" value="${total}">
+                    <c:forEach var="row" items="${cart}">
+                        <input type="hidden" name="pno" value="${row.pno}">
+                        <input type="hidden" name="pname" value="${row.pname}">
+                        <input type="hidden" name="price" value="${row.price}">
+                        <input type="hidden" name="amount" value="${row.amount}">
+                        <input type="hidden" name="cno" value="${row.cno}">
+                    </c:forEach>
+                    <img src="/resources/img/core-img/cart.png" alt=""> <input type="submit" class="cart-nav" value="&nbsp;장바구니" style="border:none; background-color:white;"><span>&nbsp;(0)</span></a>
+                    <a href="#" class="search-nav"><img src="/resources/img/core-img/search.png" alt=""> 검색</a>
                 </form>
             </div>
 
@@ -161,12 +156,12 @@
                                     </div>
                                     
                                     <div class="row" style="padding: 20px">
-	                                    <div class="col-md-5 col-md-offset-2">
-	                                        <a href="modify?email=${mypage.email}" class="btn btn-info">수정</a>
-	                                    </div>
-	                                    <div class="col-md-5 col-md-offset-2">
-	                                    	<a href="remove" class="btn btn-dark">삭제</a>
-	                                    </div>
+                                        <div class="col-md-5 col-md-offset-2">
+                                            <a href="modify?email=${mypage.email}" class="btn btn-info">수정</a>
+                                        </div>
+                                        <div class="col-md-5 col-md-offset-2">
+                                            <a href="remove?email=${mypage.email}" class="btn btn-dark">삭제</a>
+                                        </div>
                                     </div>
                                 </div>
                             </form>

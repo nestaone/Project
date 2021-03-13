@@ -12,7 +12,7 @@
 		delete from tbl_attach where uuid = #{uuid}
 	</delete>
 	
-	<select id="findByPno"  resultType="com.green.domain.UploadVO">
-		select * from tbl_attach where bno = #{bno}
+	<select id="fileList"  resultType="com.green.domain.UploadVO">
+		select * from tbl_attach where
 	</select>
 </mapper>

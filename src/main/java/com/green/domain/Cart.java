@@ -10,16 +10,12 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class Cart {
-	private Long cno;
+	private Long cno, pno;
 	private String email;
-	private Long pno;
-	private int amount;
-	private int total;
+	private int amount, total;
 	
 	//테이블 join
 	//private String name;
 	//private String productName;
 	//private int price;
-	
-	
 }

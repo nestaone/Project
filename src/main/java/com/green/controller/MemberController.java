@@ -31,7 +31,6 @@ public class MemberController {
 	//로그인
 	@GetMapping("/login")
 	public String getLogin() {
-		System.out.println("여기 로그인 컨트롤러 get 들어오나");
 		return "member/login";
 	}
 	@PostMapping("/login")
@@ -58,9 +57,9 @@ public class MemberController {
 	@PostMapping("/register")
 	public String postRegister(Model model, Member member) {
 		int result = service.regist(member);
-		System.out.println("여기 등록포스트 컨트롤러 회원등록 후 반환된 결과값 " +result);
+		System.out.println("여기 등록포스트 컨트롤러 회원등록 후 반환된 결과값 " + result);
 		if(result == 1) {
-			model.addAttribute("result",result);
+			model.addAttribute("result", result);
 			return "member/register";
 		}
 		else {
@@ -119,6 +118,13 @@ public class MemberController {
 	public String postModify(Member member) {
 		service.modify(member);
 		return "redirect:/member/mypage?email="+member.getEmail();
+	}
+	
+	//고객정보 삭제
+	@GetMapping("/remove")
+	public String remove(String email) {
+		service.remove(email);
+		return "redirect:/";
 	}
 /* ------------------ 고객 관련 끝(member 폴더) ------------------ */	
 	

@@ -13,6 +13,4 @@ public interface MemberMapper {
 	public int remove(String email);//삭제
 	public Member getByEmail(String email);//이메일 주소와 비밀번호 일치 여부 확인
 	
-	public Member yourPage(String email);//임시 로그인(삭제 예정)
-	
 }

@@ -1,5 +1,7 @@
 package com.green.domain;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,5 +18,4 @@ public class Product {
     private String category;
     private int price;
     private String description;
-    
 }
